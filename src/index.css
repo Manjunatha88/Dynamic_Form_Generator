@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: 245, 245, 220; /* Light mode background */
+    --color-surface: 255, 255, 255; /* Light mode surface */
+    --color-primary: 128, 0, 0; /* Light mode primary */
+    --color-accent: 218, 165, 32; /* Light mode accent */
+    --color-text: 28, 28, 28; /* Light mode text */
+    color-scheme: light;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+  }
+
+  .dark {
+    --color-background: 28, 28, 28; /* Dark mode background */
+    --color-surface: 38, 38, 38; /* Dark mode surface */
+    --color-primary: 216, 131, 115; /* Dark mode primary */
+    --color-accent: 255, 200, 120; /* Dark mode accent */
+    --color-text: 245, 245, 220; /* Dark mode text */
+    color-scheme: dark;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.text-transparent {
+   color: #1d787b;
+}
+
+@layer utilities {
+   .bg-gradient-luxury {
+     @apply bg-gradient-to-r from-primary/80 to-accent/80 dark:from-primary/40 dark:to-accent/40;
+   }
+
+   .transition-colors {
+     transition-property: background-color, border-color, color;
+     transition-duration: .3s;
+     transition-timing-function: ease-in-out;
+   }
+}
